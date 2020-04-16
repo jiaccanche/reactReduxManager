@@ -1,11 +1,16 @@
 import React from 'react';
-
+import { Provider } from 'react-redux';
+import store from './store';
+import Jugadores from './Jugadores';
+import EquipoSeleccionado from './EquipoSeleccionado';
 
 const App = () => {
   return (
-    <main>
+    <Provider store = { store }>
       <h1 >Ejemplo redux</h1>
-    </main>
+      <Jugadores />
+      <EquipoSeleccionado />
+    </Provider>
   );
 }
 
