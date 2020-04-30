@@ -1,26 +1,27 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Box, Icon, Stack,Button } from '@chakra-ui/core';
 
 const Jugadores = ({ jugadores, agregarTitular, agregarSuplente }) => {
 
     return(
-        <section>
-        <h2>Jugadores</h2>
-        <div className="contenedor-jugadores">
+        <Box   m="2" p="3" borderWidth="1px" >
+        <h2><Icon name="sun"/> Jugadores</h2>
+        <Stack isInline>
             {
                 jugadores.map(j => (
-                   <article key = { j.id }>
+                   <Box key = { j.id }>
                    <h3> { j.nombre } </h3>
                    <img src= {j.foto} alt={j.nombre} width="80px" height="80px" />
                    <div>
-                   <button onClick= { () => agregarSuplente(j) } > Suplente </button>
-                   <button onClick= { () => agregarTitular(j) } > Titular </button>
+                   <Button onClick= { () => agregarSuplente(j) } > Suplente </Button>
+                   <Button onClick= { () => agregarTitular(j) } > Titular </Button>
                    </div>
-                   </article> 
+                   </Box> 
                 ))
             }
-        </div>
-        </section>
+        </Stack>
+        </Box>
     );
 };
 
